@@ -1,0 +1,277 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+header .logo img {
+    width: 120px;
+}
+
+header nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Container do produto */
+.product-container {
+    display: flex;
+    padding: 40px;
+}
+
+.product-image {
+    flex: 1;
+    text-align: center;
+}
+
+.product-image img {
+    max-width: 80%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 800px;
+}
+
+.short-description {
+    font-size: 1rem;
+    color: #555;
+    display: flex;
+    flex-direction: column;
+}
+
+.free-shipping {
+    color: #007b55;
+    font-weight: bold;
+}
+
+.product-details {
+    flex: 1;
+    padding: 20px;
+}
+
+.product-details h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.price {
+    font-size: 1.5rem;
+    color: #56B280;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Opções de compra */
+.purchase-options label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.purchase-options select {
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.quantity label {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: #4caf50; 
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.quantity-btn:hover {
+    background-color: #45a049;
+}
+
+#quantity {
+    width: 65px; 
+    height: 30px; 
+    font-size: 18px; 
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Remover setas nativas do input */
+#quantity::-webkit-inner-spin-button,
+#quantity::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#quantity {
+    -moz-appearance: textfield; /* Remoção em navegadores Firefox */
+}
+
+
+/* Botão comprar */
+.buy-btn {
+    background-color: #56B280;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.buy-btn:hover {
+    background-color: #218838;
+}
+
+/* Descrição longa */
+.long-description {
+    margin-top: 20px;
+    color: #555;
+}
+
+/* Seção Footer */
+.footer-section {
+    background-color: #56B280; /* Cor verde da identidade visual */
+    color: white;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.footer-logo {
+    flex: 1 1 100px;
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-logo img {
+    max-width: 100px;
+    height: auto;
+}
+
+.footer-about,
+.footer-links,
+.footer-social {
+    flex: 1 1 calc(33.33% - 20px);
+    min-width: 200px;
+}
+
+.footer-about h4,
+.footer-links h4,
+.footer-social h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.footer-about p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.footer-links ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-social .social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-social .social-icons a img {
+    width: 30px;
+    height: 30px;
+    /* filter: brightness(0) invert(1); 
+    transition: transform 0.3s; */
+}
+
+.footer-social .social-icons a img:hover {
+    transform: scale(1.1);
+}
+
+.main-footer {
+    background-color: #444;
+    color: #ccc;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+}
+
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 15px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.nav-link {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.nav-link:visited {
+    color: inherit; 
+}
+
+.nav-link:focus,
+.nav-link:active {
+    outline: none; 
+}

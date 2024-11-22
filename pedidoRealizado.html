@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Realizado</title>
+    <link rel="stylesheet" href="css/pedidoRealizado.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <a href="http://127.0.0.1:5500/index.html">
+                <img src="images/logoTerraQuinta.png" alt="Logo Terra Quinta">
+            </a>
+           
+        </div>
+        <a href="http://127.0.0.1:5500/index.html#sobre-nos" class="nav-link" style="font-size: 18px;">Sobre nós</a>
+        <nav>
+
+            <div class="icons">
+                <a href="http://127.0.0.1:5500/login.html">
+                    <img src="images/users.png" alt="User" style="width: 30px; height: 30px;">
+                </a>
+
+                <a href="http://127.0.0.1:5500/carrinho.html" class="icon">
+                    <img src="images/carrinhoHeader.png" alt="Carrinho" style="width: 30px; height: 30px;">
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="confirmation">
+            <h2>Pedido Confirmado</h2>
+            <p id="order-number">Pedido #1234</p>
+            <p id="thank-you-message" >
+                Obrigado por comprar com a Terra Quinta. Agora que seu pedido foi confirmado, <br>ele estará pronto para envio em 2 dias úteis. Por favor, verifique sua caixa de entrada para futuras atualizações do pedido.
+            </p>
+            <button id="back-to-shopping">De volta às compras</button>
+        </section>
+
+        <section class="order-summary">
+            <h3>Resumo do Pedido</h3>
+            <div id="order-items"></div>
+            <div class="order-totals">
+                <p><strong>Total:</strong> <span id="order-total"></span></p>
+                <p><strong>Frete:</strong> <span id="shipping-cost">Grátis</span></p>
+                <p><strong>Valor Total:</strong> <span id="final-total"></span></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/pedidoRealizado.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto - Terra Quinta</title>
+    <link rel="stylesheet" href="css/produto.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <a href="http://127.0.0.1:5500/index.html">
+                <img src="images/logoTerraQuinta.png" alt="Logo Terra Quinta">
+            </a>
+           
+        </div>
+        <a href="http://127.0.0.1:5500/index.html#sobre-nos" class="nav-link" style="font-size: 18px;">Sobre nós</a>
+        <nav>
+
+            <div class="icons">
+                <a href="http://127.0.0.1:5500/login.html">
+                    <img src="images/users.png" alt="User" style="width: 30px; height: 30px;">
+                </a>
+
+                <a href="http://127.0.0.1:5500/carrinho.html" class="icon">
+                    <img src="images/carrinhoHeader.png" alt="Carrinho" style="width: 30px; height: 30px;">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="product-container">
+        <div class="product-image">
+            <img src="images/pimenta-ornamental.jpg" alt="Pimenta Ornamental">
+            <p class="short-description">
+                Nossas plantas trazem a natureza para dentro de casa, criando ambientes mais acolhedores e tranquilos.
+                <span class="free-shipping">FRETE GRÁTIS</span>
+            </p>
+        </div>
+        <div class="product-details">
+            <h1></h1>
+            <p class="price"></p>
+
+            <form id="product-form">
+                <div class="quantity">
+                    <label for="quantity">Quantidade</label>
+                    <button type="button" class="quantity-btn" id="decrease">-</button>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1">
+                    <button type="button" class="quantity-btn" id="increase">+</button>
+                </div>
+
+                <button type="button" class="buy-btn" id="add-to-cart-btn">
+                    🛒 + Comprar
+                </button>
+            </form>
+
+            <p class="long-description">
+                Esta planta apresenta folhagem vibrante e saudável, ideal para embelezar qualquer ambiente. 
+                Suas folhas verdes exuberantes trazem frescor e vida, enquanto sua resistência a diversas condições de luz
+                a torna uma ótima opção tanto para interiores quanto para exteriores. Com cuidados simples, como rega moderada
+                e exposição à luz indireta, esta planta pode prosperar e se tornar uma bela adição à sua decoração.
+            </p>
+        </div>
+    </main>
+
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h4>Terra Quinta</h4>
+                <p>
+                    Sua parceira para trazer o melhor da natureza para o seu lar. Explore nossa coleção e transforme
+                    seus ambientes.
+                </p>
+            </div>
+            <div class="footer-links">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="http://127.0.0.1:5500/index.html#sobre-nos">Sobre Nós</a></li>
+                    <li><a href="http://127.0.0.1:5500/index.html#produtos">Produtos</a></li>
+                    <li><a href="http://127.0.0.1:5500/index.html#avaliacoes">Avaliações</a></li>
+                    <li><a href="http://127.0.0.1:5500/index.html#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Siga-nos</h4>
+                <div class="social-icons">
+                    <a href="#"><img src="images/facebook-new.png" alt="Facebook"></a>
+                    <a href="#"><img src="images/insta.png" alt="Instagram"></a>
+                    <a href="#"><img src="images/x-icon.png" alt="Twitter"></a>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+    <footer class="main-footer">
+        <p>© 2024 Terra Quinta. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            const name = params.get("name");
+            const price = params.get("price");
+            const image = params.get("image");
+
+            if (name && price && image) {
+                document.querySelector(".product-image img").src = image;
+                document.querySelector(".product-image img").alt = name;
+                document.querySelector(".product-details h1").textContent = name;
+                document.querySelector(".product-details .price").textContent = `${price}`;
+            }
+
+            const addToCartBtn = document.getElementById("add-to-cart-btn");
+            addToCartBtn.addEventListener("click", function () {
+                const quantity = document.getElementById("quantity").value;
+
+                const product = {
+                    name,
+                    price,
+                    image,
+                    quantity: parseInt(quantity)
+                };
+
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+                const existingProduct = cart.find((item) => item.name === name);
+                if (existingProduct) {
+                    existingProduct.quantity += product.quantity;
+                } else {
+                    cart.push(product);
+                }
+
+                localStorage.setItem("cart", JSON.stringify(cart));
+
+                window.location.href = "carrinho.html";
+            });
+        });
+    </script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

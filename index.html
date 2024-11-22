@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terra Quinta - Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header class="main-header">
+        <div class="logo">
+            <a href="http://127.0.0.1:5500/index.html">
+                <img src="images/logoTerraQuinta.png" alt="Logo Terra Quinta">
+            </a>
+           
+        </div>
+        <a href="#sobre-nos" class="nav-link" style="font-size: 18px;">Sobre nós</a>
+        <nav>
+
+            <div class="icons">
+                <a href="http://127.0.0.1:5500/login.html">
+                    <img src="images/users.png" alt="User" style="width: 30px; height: 30px;">
+                </a>
+
+                <a href="http://127.0.0.1:5500/carrinho.html" class="icon">
+                    <img src="images/carrinhoHeader.png" alt="Carrinho" style="width: 30px; height: 30px;">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="hero-section">
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+            <!-- Indicadores -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <!-- Slides -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="carousel-background" style="background-image: url('images/homePlantas.jpg');"></div>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Seu jardim mais natural</h5>
+                        <p>Transforme seus ambientes com a natureza ao seu lado.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="carousel-background" style="background-image: url('images/plantasHome.jpg');"></div>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Explore nossa coleção</h5>
+                        <p>Plantas perfeitas para cada momento e espaço.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="carousel-background" style="background-image: url('images/plantas2Home.jpg');"></div>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Natureza ao seu alcance</h5>
+                        <p>Viva momentos incríveis rodeado de verde.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controles -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+
+    </section>
+
+    <section id="produtos" class="products-section">
+        <h2>Produtos</h2>
+        <p>Peça para você ou para quem você ama.</p>
+        <div class="products-grid">
+            <!-- Card de Produto -->
+            <div style="display: flex; gap: 20px;">
+                <div class="product-card" data-name="Antúrio Vermelho" data-price="R$ 39,00"
+                    data-image="images/anturio-vermelho.png">
+                    <img src="images/anturio-vermelho.png" alt="Antúrio Vermelho">
+                    <h3>Antúrio Vermelho</h3>
+                    <p class="price">R$ 39,00</p>
+                </div>
+                <div class="product-card" data-name="Ficus Elastica" data-price="R$ 22,00"
+                    data-image="images/ficus-elastica.png">
+                    <img src="images/ficus-elastica.png" alt="Ficus Elastica">
+                    <h3>Ficus Elastica</h3>
+                    <p class="price">R$ 22,00</p>
+                </div>
+                <div class="product-card" data-name="Zamioculca" data-price="R$ 39,99"
+                    data-image="images/zamioculca.png">
+                    <img src="images/zamioculca.png" alt="Zamioculca">
+                    <h3>Zamioculca</h3>
+                    <p class="price">R$ 39,99</p>
+                </div>
+                <div class="product-card" data-name="Bananeira de Jardim" data-price="R$ 29,99"
+                    data-image="images/bananeira.png">
+                    <img src="images/bananeira.png" alt="Bananeira de Jardim">
+                    <h3>Bananeira de Jardim</h3>
+                    <p class="price">R$ 29,99</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 20px;">
+                <div class="product-card" data-name="Clorofito" data-price="R$ 20,00"
+                data-image="images/clorofito.png">
+                    <img src="images/clorofito.png" alt="Clorofito">
+                    <h3>Clorofito</h3>
+                    <p class="price">R$ 20,00</p>
+                </div>
+                <div class="product-card" data-name="Orquídea Phalaenopsis" data-price="R$ 28,99"
+                data-image="images/orquidea.png">
+                    <img src="images/orquidea.png" alt="Orquídea Phalaenopsis">
+                    <h3>Orquídea Phalaenopsis</h3>
+                    <p class="price">R$ 28,99</p>
+                </div>
+                <div class="product-card" data-name="Pimenta Ornamental" data-price="R$ 29,00"
+                data-image="images/pimenta.png">
+                    <img src="images/pimenta.png" alt="Pimenta Ornamental">
+                    <h3>Pimenta Ornamental</h3>
+                    <p class="price">R$ 29,99</p>
+                </div>
+                <div class="product-card" data-name="Peperomia Scandens" data-price="R$ 30,00"
+                data-image="images/peperomia.png">
+                    <img src="images/peperomia.png" alt="Peperomia Scandens">
+                    <h3>Peperomia Scandens</h3>
+                    <p class="price">R$ 30,00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-nos" class="about-us-section">
+        <div class="about-us-container">
+            <div class="about-us-content">
+                <h2>Sobre Nós</h2>
+                <p>
+                    Na <strong>Terra Quinta</strong>, acreditamos que a natureza é essencial para uma vida equilibrada.
+                    Nossa missão é levar o frescor e a beleza das plantas para o seu dia a dia,
+                    promovendo bem-estar e criando conexões mais próximas com o meio ambiente.
+                </p>
+                <p>
+                    Desde pequenas suculentas até plantas ornamentais completas, oferecemos uma seleção especial para
+                    todos os gostos e estilos de vida. Nossa equipe dedica-se a oferecer produtos de qualidade,
+                    sempre priorizando a sustentabilidade e o cuidado com a natureza.
+                </p>
+                <a href="#sobre-nos" class="about-us-btn">Saiba mais sobre nossa história</a>
+            </div>
+            <div class="about-us-image">
+                <img src="images/sobreNos.jpg" alt="Equipe Terra Quinta">
+            </div>
+        </div>
+    </section>
+
+    <section id="avaliacoes" class="reviews-section">
+        <div class="reviews-container">
+            <h2>Avaliações</h2>
+            <p>Veja o que nossos clientes dizem sobre nós</p>
+            <div class="reviews-cards">
+                <div class="review-card">
+                    <div class="review-stars">
+                        ★ ★ ★ ★ ★
+                    </div>
+                    <p class="review-text">
+                        "Excelente qualidade e atendimento. Minhas plantas chegaram lindas e bem cuidadas. Recomendo
+                        muito!"
+                    </p>
+                    <span class="review-author">- Maria Silva</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        ★ ★ ★ ★ ★
+                    </div>
+                    <p class="review-text">
+                        "Comprei várias plantas para minha casa e estou apaixonado! Tudo chegou no prazo e com muita
+                        qualidade."
+                    </p>
+                    <span class="review-author">- João Pereira</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        ★ ★ ★ ★ ★
+                    </div>
+                    <p class="review-text">
+                        "A experiência de compra foi incrível. O site é fácil de navegar e a entrega foi muito rápida."
+                    </p>
+                    <span class="review-author">- Ana Costa</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contato" class="footer-section">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h4>Terra Quinta</h4>
+                <p>
+                    Sua parceira para trazer o melhor da natureza para o seu lar. Explore nossa coleção e transforme
+                    seus ambientes.
+                </p>
+            </div>
+            <div class="footer-links">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#sobre-nos">Sobre Nós</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#avaliacoes">Avaliações</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Siga-nos</h4>
+                <div class="social-icons">
+                    <a href="#"><img src="images/facebook-new.png" alt="Facebook"></a>
+                    <a href="#"><img src="images/insta.png" alt="Instagram"></a>
+                    <a href="#"><img src="images/x-icon.png" alt="Twitter"></a>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+    <footer class="main-footer">
+        <p>© 2024 Terra Quinta. Todos os direitos reservados.</p>
+    </footer>
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+</body>
+
+</html>
