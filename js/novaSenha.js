@@ -2,48 +2,54 @@ document.getElementById('new-password-form').addEventListener('submit', function
     e.preventDefault();
 
     const email = localStorage.getItem('emailForPasswordReset')?.trim().toLowerCase();
-    console.log('E-mail recuperado do localStorage:', email); 
-
     const newPassword = document.getElementById('new-password').value.trim();
     const confirmPassword = document.getElementById('confirm-new-password').value.trim();
 
     const feedback = document.getElementById('feedback');
+    let userFound = false; // Inicializa a variável
+
+    // Função para exibir o feedback
+    function showFeedback(message, type) {
+        feedback.textContent = message; // Define a mensagem
+        feedback.className = type; // Define a classe (error ou success)
+        feedback.classList.remove('hidden'); // Remove a classe que oculta
+    }
 
     if (!email) {
-        feedback.textContent = 'Erro: Não foi possível encontrar o e-mail para redefinir a senha.';
-        feedback.style.color = 'red';
-        console.error('Erro: E-mail não encontrado no localStorage!');
+        showFeedback('Não foi possível encontrar o e-mail para redefinir a senha.', 'error');
+        console.error(' E-mail não encontrado no localStorage!');
         return;
     }
 
     if (newPassword !== confirmPassword) {
-        feedback.textContent = 'As senhas não coincidem!';
-        feedback.style.color = 'red';
-        console.log('Erro: As senhas não coincidem.');
+        showFeedback('As senhas não coincidem!', 'error');
+        console.log('As senhas não coincidem.');
         return;
     }
 
     let users = JSON.parse(localStorage.getItem('users')) || [];
-    console.log('Usuários no localStorage:', users); 
 
-    const user = users.find(user => user.email.trim().toLowerCase() === email);
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].email.trim().toLowerCase() === email) {
+            users[i].password = newPassword; // Atualiza a senha
+            userFound = true; // Marca o usuário como encontrado
+            console.log('Senha atualizada para o usuário:', users[i]);
+            break; // Encerra o loop
+        }
+    }
 
-    console.log('Usuário encontrado:', user);
-
-    if (!user) {
-        feedback.textContent = 'Este email não está registrado.';
-        feedback.style.color = 'red';
-        console.log('Erro: E-mail não registrado.');
+    if (!userFound) {
+        showFeedback('Erro: Este e-mail não está registrado.', 'error');
+        console.error('Erro: E-mail não registrado.');
         return;
     }
 
-    user.password = newPassword;
-
+    // Atualiza o localStorage com as novas informações
     localStorage.setItem('users', JSON.stringify(users));
 
-    feedback.textContent = 'Senha atualizada com sucesso!';
-    feedback.style.color = 'green';
+    showFeedback('Senha atualizada com sucesso! Redirecionando...', 'success');
 
+    // Redireciona o usuário após um curto período
     setTimeout(() => {
         window.location.href = 'login.html';
     }, 2000);

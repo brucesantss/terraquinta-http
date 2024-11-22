@@ -27,7 +27,7 @@ document.getElementById('reset-password-form')?.addEventListener('submit', funct
         console.log('Usuário encontrado:', user);
 
         setTimeout(() => {
-            localStorage.setItem('emailForPasswordReset', JSON.stringify(email)); // Salva o e-mail no localStorage
+            localStorage.setItem('emailForPasswordReset', email);
             window.location.href = "novaSenha.html"; // Redireciona para a página de nova senha
         }, 1500);
     } else {
