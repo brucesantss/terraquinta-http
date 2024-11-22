@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Senha - Terra Quinta</title>
+    <link rel="stylesheet" href="css/novaSenha.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logoTerraQuinta.png" alt="Logo Terra Quinta">
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="container-reset">
+            <div class="reset-panel">
+                <h1>Defina sua nova senha</h1>
+                <p>Escolha uma nova senha forte para sua conta.</p>
+                <form id="new-password-form">
+                    <label for="new-password">Nova Senha</label>
+                    <input type="password" id="new-password" placeholder="Sua nova senha" required>
+
+                    <label for="confirm-new-password">Confirmar Senha</label>
+                    <input type="password" id="confirm-new-password" placeholder="Confirme a nova senha" required>
+
+                    <div class="content-btn">
+                        <button type="submit" class="btn">Confirmar Nova Senha</button>
+                    </div>
+                </form>
+
+                <!-- Feedback para o usuário -->
+                <p id="feedback" class="hidden"></p>
+
+                <p class="login-link">
+                    Já tem uma conta? <a href="login.html">Entrar</a>
+                </p>
+                <footer>
+                    ©Terra Quinta All Rights Reserved.
+                </footer>
+            </div>
+            <div class="image-panel">
+                <img src="images/loginPlanta.jpg" alt="Imagem de folhas">
+            </div>
+        </div>
+    </div>
+
+    <script src="js/novaSenha.js"></script>
+
+</body>
+</html>
