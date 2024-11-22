@@ -6,7 +6,7 @@ document.getElementById('new-password-form').addEventListener('submit', function
     const confirmPassword = document.getElementById('confirm-new-password').value.trim();
 
     const feedback = document.getElementById('feedback');
-    let userFound = false; // Inicializa a variável
+    let userFound = false;
 
     // Função para exibir o feedback
     function showFeedback(message, type) {
@@ -31,10 +31,10 @@ document.getElementById('new-password-form').addEventListener('submit', function
 
     for (let i = 0; i < users.length; i++) {
         if (users[i].email.trim().toLowerCase() === email) {
-            users[i].password = newPassword; // Atualiza a senha
-            userFound = true; // Marca o usuário como encontrado
+            users[i].password = newPassword; 
+            userFound = true; 
             console.log('Senha atualizada para o usuário:', users[i]);
-            break; // Encerra o loop
+            break; 
         }
     }
 
@@ -44,12 +44,10 @@ document.getElementById('new-password-form').addEventListener('submit', function
         return;
     }
 
-    // Atualiza o localStorage com as novas informações
     localStorage.setItem('users', JSON.stringify(users));
 
     showFeedback('Senha atualizada com sucesso! Redirecionando...', 'success');
 
-    // Redireciona o usuário após um curto período
     setTimeout(() => {
         window.location.href = 'login.html';
     }, 2000);

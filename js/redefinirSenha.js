@@ -1,13 +1,11 @@
 document.getElementById('reset-password-form')?.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    // Recupera o e-mail digitado
     const email = document.getElementById('reset-email').value.trim();
-    const feedback = document.createElement('p'); // Cria o feedback
+    const feedback = document.createElement('p');
     feedback.classList.add('feedback');
-    document.querySelector('.reset-panel').appendChild(feedback); // Adiciona o feedback no painel
+    document.querySelector('.reset-panel').appendChild(feedback);
 
-    // Validação de e-mail vazio
     if (!email) {
         feedback.textContent = 'Por favor, insira o seu e-mail.';
         feedback.className = 'error';
@@ -15,7 +13,6 @@ document.getElementById('reset-password-form')?.addEventListener('submit', funct
         return;
     }
 
-    // Verifica se o e-mail existe no localStorage
     let users = JSON.parse(localStorage.getItem('users')) || [];
     console.log('Usuários no localStorage:', users);
 
@@ -28,7 +25,7 @@ document.getElementById('reset-password-form')?.addEventListener('submit', funct
 
         setTimeout(() => {
             localStorage.setItem('emailForPasswordReset', email);
-            window.location.href = "novaSenha.html"; // Redireciona para a página de nova senha
+            window.location.href = "novaSenha.html"; 
         }, 1500);
     } else {
         feedback.textContent = 'E-mail não encontrado. Tente novamente.';
