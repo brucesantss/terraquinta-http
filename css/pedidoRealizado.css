@@ -102,6 +102,11 @@ main {
     margin-top: 20px;
 }
 
+#back-to-shopping > a:visited, a {
+    color: white;
+    text-decoration: none;
+}
+
 #back-to-shopping:hover {
     background-color: #45a049;
 }

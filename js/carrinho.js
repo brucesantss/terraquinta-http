@@ -35,6 +35,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     totalPriceElement.textContent = `R$ ${total.toFixed(2).replace(".", ",")}`;
 
+    // limpando carrinho apos finalizar compra
+    document.querySelector('.checkout-btn').addEventListener('click', function () {
+        localStorage.removeItem("cart");
+        window.location.href = 'http://127.0.0.1:5500/pedidoRealizado.html';
+    });
+    
+
     document.querySelectorAll(".remove-btn").forEach((btn) => {
         btn.addEventListener("click", function () {
             const name = btn.dataset.name;
