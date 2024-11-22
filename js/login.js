@@ -26,8 +26,9 @@ document.getElementById('login-form')?.addEventListener('submit', function (e) {
             feedback.classList.add('success');
             feedback.classList.remove('hidden');
 
+            // Redirecionar para a página inicial após 1,5 segundos
             setTimeout(() => {
-                window.location.href = 'home.html'; // Redirecionar para a página inicial
+                window.location.href = 'home.html'; // Redireciona para a página inicial
             }, 1500);
         } else {
             // Credenciais inválidas
