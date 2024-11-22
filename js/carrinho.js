@@ -1,62 +1,51 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const cartItemsContainer = document.querySelector(".cart-items");
-    const totalPriceElement = document.getElementById("total-price");
+document.getElementById('register-form')?.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const username = document.getElementById('register-username').value.trim();
+    const email = document.getElementById('register-email').value.trim();
+    const password = document.getElementById('register-password').value.trim();
+    const confirmPassword = document.getElementById('confirm-password').value.trim();
+    const feedback = document.getElementById('feedback');
 
-    if (cart.length === 0) {
-        cartItemsContainer.innerHTML = "<p>Seu carrinho está vazio!</p>";
+    console.log('Iniciando processo de cadastro');
+    console.log(`Usuário: ${username}, Email: ${email}`);
+
+    if (!username || !email || !password || !confirmPassword) {
+        feedback.textContent = 'Por favor, preencha todos os campos!';
+        feedback.classList.add('error');
+        feedback.classList.remove('hidden');
+        console.error('Erro: Campos obrigatórios não preenchidos.');
         return;
     }
 
-    let total = 0;
+    if (password !== confirmPassword) {
+        feedback.textContent = 'As senhas não coincidem!';
+        feedback.classList.add('error');
+        feedback.classList.remove('hidden');
+        console.error('Erro: Senhas diferentes.');
+        return;
+    }
 
-    cart.forEach((product) => {
-        const itemTotal = parseFloat(product.price.replace("R$", "").replace(",", ".")) * product.quantity;
-        total += itemTotal;
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    console.log('Usuários existentes:', users);
 
-        const cartItem = document.createElement("div");
-        cartItem.classList.add("cart-item");
-        cartItem.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
-            <div class="cart-item-details">
-                <h3>${product.name}</h3>
-                <p>Preço: ${product.price}</p>
-                <p>Quantidade: ${product.quantity}</p>
-                <p>Total: R$ ${itemTotal.toFixed(2).replace(".", ",")}</p>
-            </div>
-            <div class="cart-item-actions">
-                <img src="images/lixeira.png" alt="Lixeira" style="width: 25px; height: 25px; cursor: pointer;" class="remove-btn" data-name="${product.name}">
-            </div>
-        `;
+    if (users.find(user => user.email === email)) {
+        feedback.textContent = 'Email já cadastrado!';
+        feedback.classList.add('error');
+        feedback.classList.remove('hidden');
+        console.error('Erro: Email já cadastrado.');
+        return;
+    }
 
-        cartItemsContainer.appendChild(cartItem);
-    });
+    users.push({ username, email, password });
+    localStorage.setItem('users', JSON.stringify(users));
+    console.log('Novo usuário adicionado:', { username, email });
 
-    totalPriceElement.textContent = `R$ ${total.toFixed(2).replace(".", ",")}`;
+    feedback.textContent = 'Usuário cadastrado com sucesso!';
+    feedback.classList.add('success');
+    feedback.classList.remove('hidden');
 
-    // limpando carrinho apos finalizar compra
-    document.querySelector('.checkout-btn').addEventListener('click', function () {
-        localStorage.removeItem("cart");
-        window.location.href = 'http://127.0.0.1:5500/pedidoRealizado.html';
-    });
-    
-
-    document.querySelectorAll(".remove-btn").forEach((btn) => {
-        btn.addEventListener("click", function () {
-            const name = btn.dataset.name;
-
-            cart = cart.filter((item) => item.name !== name);
-            localStorage.setItem("cart", JSON.stringify(cart));
-            
-            window.location.reload();
-        });
-    });
-
-    
-});
-
-document.querySelector('.checkout-btn').addEventListener('click', function () {
-    // Redireciona para a página "pedidoRealizado.html"
-    window.location.href = 'http://127.0.0.1:5500/pedidoRealizado.html';
+    setTimeout(() => {
+        window.location.href = 'login.html'; // Redirecionar para a página de login
+    }, 1500);
 });

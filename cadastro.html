@@ -43,13 +43,16 @@
                     <label for="register-password">Senha</label>
                     <input type="password" id="register-password" placeholder="Senha" required>
 
-                    <label for="confirm-password">Senha</label>
-                    <input type="password" id="confirm-password" placeholder="Confirme a senha" required>
+                    <label for="confirm-password">Confirmar Senha</label>
+                    <input type="password" id="confirm-password" placeholder="Confirmar Senha" required>
 
                     <div class="content-btn">
                         <button type="submit" class="btn">Cadastrar</button>
                     </div>
                 </form>
+
+                <!-- Feedback para o usuário -->
+                <p id="feedback" class="hidden"></p>
 
                 <p class="register">
                     Já tem uma conta? <a href="login.html">Fazer login</a>
@@ -61,6 +64,8 @@
             </div>
         </div>
     </div>
+
+    <script src="js/cadastro.js"></script>
 </body>
 
 </html>

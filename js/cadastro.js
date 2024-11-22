@@ -7,10 +7,11 @@ document.getElementById('register-form')?.addEventListener('submit', function (e
     const confirmPassword = document.getElementById('confirm-password').value.trim();
     const feedback = document.getElementById('feedback');
 
+    console.log(username, email)
+
     console.log('Iniciando processo de cadastro');
     console.log(`Usuário: ${username}, Email: ${email}`);
 
-    // Verificação de campos obrigatórios
     if (!username || !email || !password || !confirmPassword) {
         feedback.textContent = 'Por favor, preencha todos os campos!';
         feedback.className = 'error';
@@ -19,7 +20,6 @@ document.getElementById('register-form')?.addEventListener('submit', function (e
         return;
     }
 
-    // Verificação de correspondência de senhas
     if (password !== confirmPassword) {
         feedback.textContent = 'As senhas não coincidem!';
         feedback.className = 'error';
@@ -28,7 +28,6 @@ document.getElementById('register-form')?.addEventListener('submit', function (e
         return;
     }
 
-    // Verificar se o email já está cadastrado
     let users = JSON.parse(localStorage.getItem('users')) || [];
     console.log('Usuários existentes:', users);
 
@@ -40,18 +39,15 @@ document.getElementById('register-form')?.addEventListener('submit', function (e
         return;
     }
 
-    // Adicionando o novo usuário
     users.push({ username, email, password });
-    localStorage.setItem('users', JSON.stringify(users));  // Salvando no localStorage
+    localStorage.setItem('users', JSON.stringify(users));
     console.log('Novo usuário adicionado:', { username, email });
 
-    // Feedback de sucesso
     feedback.textContent = 'Usuário cadastrado com sucesso!';
     feedback.className = 'success';
     feedback.classList.remove('hidden');
 
-    // Redirecionar para o login após 1,5 segundos
     setTimeout(() => {
-        window.location.href = 'login.html';  // Redireciona para a página de login
+        window.location.href = 'http://127.0.0.1:5500/login.html';
     }, 1500);
 });

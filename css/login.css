@@ -1,4 +1,3 @@
-/* Estilos Globais */
 * {
     margin: 0;
     padding: 0;
@@ -17,6 +16,7 @@ body {
 .container {
     display: flex;
     flex-direction: column;
+    /* max-width: 1100px; */
     width: 70%;
     background-color: #fff;
     border-radius: 10px;
@@ -24,28 +24,41 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.container-logo {
+.container-login{
+    display: flex;
+    
+}
+.container-logo{
     width: 50%;
 }
-
-.logo {
-    padding: 20px;
+.login-panel {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.logo{
+    padding-left: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
+}
+.image-panel {
+    flex: 1;
+    padding: 0px 20px 10px 20px;
+}
+
+.image-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .logo img {
     width: 120px;
-}
-
-.container-login {
-    display: flex;
-}
-
-.login-panel {
-    padding: 40px;
-    width: 50%;
+    /* margin-bottom: 20px; */
 }
 
 h1 {
@@ -89,19 +102,22 @@ input:focus {
 }
 
 .forgot-password {
-    font-size: 0.9rem;
     color: #007b55;
     text-decoration: none;
+    font-size: 0.9rem;
     margin-bottom: 20px;
+    justify-content: end;
+    display: flex;
 }
 
 .forgot-password:hover {
     text-decoration: underline;
 }
 
-.content-btn {
+.content-btn{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .btn {
@@ -135,13 +151,25 @@ input:focus {
     text-decoration: underline;
 }
 
-.image-panel {
-    flex: 1;
-    padding: 20px;
+footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #aaa;
 }
 
-.image-panel img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.hidden {
+    display: none;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.success {
+    color: green;
+    font-size: 14px;
+    margin-top: 10px;
 }
