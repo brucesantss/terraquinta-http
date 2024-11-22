@@ -410,11 +410,8 @@ body {
     gap: 10px;
 }
 
-.footer-social .social-icons a img {
-    width: 30px;
-    height: 30px;
-    /* filter: brightness(0) invert(1); 
-    transition: transform 0.3s; */
+.footer-social .social-icons a {
+    color: #eee;
 }
 
 .footer-social .social-icons a img:hover {

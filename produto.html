@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produto - Terra Quinta</title>
     <link rel="stylesheet" href="css/produto.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
 <body>
@@ -65,7 +66,7 @@
         </div>
     </main>
 
-    <footer class="footer-section">
+    <footer id="contato" class="footer-section">
         <div class="footer-container">
             <div class="footer-about">
                 <h4>Terra Quinta</h4>
@@ -77,68 +78,29 @@
             <div class="footer-links">
                 <h4>Links Rápidos</h4>
                 <ul>
-                    <li><a href="http://127.0.0.1:5500/home.html#sobre-nos">Sobre Nós</a></li>
-                    <li><a href="http://127.0.0.1:5500/home.html#produtos">Produtos</a></li>
-                    <li><a href="http://127.0.0.1:5500/home.html#avaliacoes">Avaliações</a></li>
-                    <li><a href="http://127.0.0.1:5500/home.html#contato">Contato</a></li>
+                    <li><a href="#sobre-nos">Sobre Nós</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#avaliacoes">Avaliações</a></li>
+                    <li><a href="#contato">Contato</a></li>
                 </ul>
             </div>
             <div class="footer-social">
                 <h4>Siga-nos</h4>
                 <div class="social-icons">
-                    <a href="#"><img src="images/facebook-new.png" alt="Facebook"></a>
-                    <a href="#"><img src="images/insta.png" alt="Instagram"></a>
-                    <a href="#"><img src="images/x-icon.png" alt="Twitter"></a>
+                    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                
                 </div>
             </div>
         </div>
-        
+
     </footer>
     <footer class="main-footer">
         <p>© 2024 Terra Quinta. Todos os direitos reservados.</p>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const params = new URLSearchParams(window.location.search);
-            const name = params.get("name");
-            const price = params.get("price");
-            const image = params.get("image");
-
-            if (name && price && image) {
-                document.querySelector(".product-image img").src = image;
-                document.querySelector(".product-image img").alt = name;
-                document.querySelector(".product-details h1").textContent = name;
-                document.querySelector(".product-details .price").textContent = `${price}`;
-            }
-
-            const addToCartBtn = document.getElementById("add-to-cart-btn");
-            addToCartBtn.addEventListener("click", function () {
-                const quantity = document.getElementById("quantity").value;
-
-                const product = {
-                    name,
-                    price,
-                    image,
-                    quantity: parseInt(quantity)
-                };
-
-                let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-                const existingProduct = cart.find((item) => item.name === name);
-                if (existingProduct) {
-                    existingProduct.quantity += product.quantity;
-                } else {
-                    cart.push(product);
-                }
-
-                localStorage.setItem("cart", JSON.stringify(cart));
-
-                window.location.href = "carrinho.html";
-            });
-        });
-    </script>
-    <script src="js/script.js"></script>
+    <script src="js/produto.js"></script>
 </body>
 
 </html>
