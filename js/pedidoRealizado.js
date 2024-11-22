@@ -44,6 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
     finalTotalElement.textContent = `R$ ${total.toFixed(2).replace(".", ",")}`;
 
     document.getElementById("back-to-shopping").addEventListener("click", function () {
-        window.location.href = "http://127.0.0.1:5500/index.html"; 
+        window.location.href = "http://127.0.0.1:5500/home.html"; 
     });
 });

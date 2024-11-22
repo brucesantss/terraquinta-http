@@ -27,7 +27,7 @@ document.getElementById('login-form')?.addEventListener('submit', function (e) {
             feedback.classList.remove('hidden');
 
             setTimeout(() => {
-                window.location.href = 'index.html'; // Redirecionar para a página inicial
+                window.location.href = 'home.html'; // Redirecionar para a página inicial
             }, 1500);
         } else {
             // Credenciais inválidas
