@@ -1,3 +1,18 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+
 /* Cabeçalho */
 .main-header {
     display: flex;
@@ -29,11 +44,16 @@
     text-decoration: none;
     color: #333;
 }
+
 .cart-container {
-    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    flex: 1; 
     margin: 20px auto;
-    padding: 20px;
+    max-width: 1200px;
 }
+
 
 .cart-items {
     display: flex;
@@ -79,18 +99,34 @@
 }
 
 .cart-summary {
-    text-align: right;
+    display: flex;
+    justify-content: space-between; /* Move os itens para os lados opostos */
+    align-items: center; /* Centraliza verticalmente */
     margin-top: 20px;
+    padding: 10px 0;
+    border-top: 2px solid #eaeaea; /* Opcional: separador visual */
 }
+
+.cart-summary p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0; /* Remove margem extra */
+    color: #333;
+}
+
 
 .checkout-btn {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 30px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+    align-self: flex-end; /* Mantém o botão alinhado */
 }
+
 
 .checkout-btn:hover {
     background-color: #45a049;
@@ -184,16 +220,13 @@
     background-color: #d32f2f;
 }
 
-/* Resumo do pedido */
 .cart-summary {
+    margin-top: auto; /* Empurra o resumo para o final do container */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background-color: #f1f1f1;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    align-items: flex-end; /* Alinha o conteúdo à direita */
 }
+
 
 .cart-summary h2 {
     font-size: 1.5rem;
@@ -221,6 +254,8 @@
     font-size: 1.1rem;
     transition: background-color 0.3s ease;
     margin-top: 20px;
+    align-self: flex-end;
+    
 }
 
 .checkout-btn:hover {
@@ -232,6 +267,7 @@
     background-color: #56B280; /* Cor verde da identidade visual */
     color: white;
     padding: 40px 20px;
+    flex-shrink: 0;
 }
 
 .footer-container {
@@ -313,6 +349,11 @@
     text-align: center;
     padding: 10px 0;
     font-size: 0.9rem;
+}
+
+footer {
+    position: relative; /* Remove sobreposição */
+    flex-shrink: 0; /* Previne o encolhimento */
 }
 
 
