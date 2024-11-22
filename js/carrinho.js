@@ -45,7 +45,27 @@ document.getElementById('register-form')?.addEventListener('submit', function (e
     feedback.classList.add('success');
     feedback.classList.remove('hidden');
 
+<<<<<<< HEAD
     setTimeout(() => {
         window.location.href = 'login.html'; // Redirecionar para a página de login
     }, 1500);
+=======
+    document.querySelectorAll(".remove-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+            const name = btn.dataset.name;
+
+            cart = cart.filter((item) => item.name !== name);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            
+            window.location.reload();
+        });
+    });
+
+    
+});
+
+document.querySelector('.checkout-btn').addEventListener('click', function () {
+    // Redireciona para a página "pedidoRealizado.html"
+    window.location.href = 'http://127.0.0.1:5500/pedidoRealizado.html';
+>>>>>>> 3a6f2b243bb48f86ba147318d52b76d72b7b194d
 });

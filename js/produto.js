@@ -1,56 +1,77 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get("name");
-    const price = params.get("price");
-    const image = params.get("image");
+// document.addEventListener("DOMContentLoaded", function () {
+//     const params = new URLSearchParams(window.location.search);
+//     const name = params.get("name");
+//     const price = params.get("price");
+//     const image = params.get("image");
 
-    if (name && price && image) {
-        document.querySelector(".product-image img").src = image;
-        document.querySelector(".product-image img").alt = name;
-        document.querySelector(".product-details h1").textContent = name;
-        document.querySelector(".product-details .price").textContent = `${price}`;
-    }
+//     if (name && price && image) {
+//         document.querySelector(".product-image img").src = image;
+//         document.querySelector(".product-image img").alt = name;
+//         document.querySelector(".product-details h1").textContent = name;
+//         document.querySelector(".product-details .price").textContent = `${price}`;
+//     }
 
-    const quantityInput = document.getElementById("quantity");
-    const decreaseBtn = document.getElementById("decrease");
-    const increaseBtn = document.getElementById("increase");
+//     const quantityInput = document.getElementById("quantity");
+//     const decreaseBtn = document.getElementById("decrease");
+//     const increaseBtn = document.getElementById("increase");
 
-    // Botão de diminuir quantidade
-    decreaseBtn.addEventListener("click", function () {
-        const currentValue = parseInt(quantityInput.value);
-        if (currentValue > 1) {
-            quantityInput.value = currentValue - 1;
-        }
-    });
+//     decreaseBtn.addEventListener("click", function () {
+//         const currentValue = parseInt(quantityInput.value);
+//         if (currentValue > 1) {
+//             quantityInput.value = currentValue - 1;
+//         }
+//     });
 
-    // Botão de aumentar quantidade
-    increaseBtn.addEventListener("click", function () {
-        const currentValue = parseInt(quantityInput.value);
-        quantityInput.value = currentValue + 1;
-    });
+//     increaseBtn.addEventListener("click", function () {
+//         const currentValue = parseInt(quantityInput.value);
+//         quantityInput.value = currentValue + 1;
+//     });
 
-    const addToCartBtn = document.getElementById("add-to-cart-btn");
-    addToCartBtn.addEventListener("click", function () {
-        const quantity = document.getElementById("quantity").value;
+//     // const addToCartBtn = document.getElementById("add-to-cart-btn");
+//     // addToCartBtn.addEventListener("click", function () {
+//     //     const quantity = parseInt(document.getElementById("quantity").value);
 
-        const product = {
-            name,
-            price,
-            image,
-            quantity: parseInt(quantity),
-        };
+//     //     const product = {
+//     //         name,
+//     //         price, // Garantir formato numérico
+//     //         image,
+//     //         quantity,
+//     //     };
 
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+//     //     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-        const existingProduct = cart.find((item) => item.name === name);
-        if (existingProduct) {
-            existingProduct.quantity += product.quantity;
-        } else {
-            cart.push(product);
-        }
+//     //     const existingProduct = cart.find((item) => item.name === name);
+//     //     if (existingProduct) {
+//     //         existingProduct.quantity += quantity;
+//     //     } else {
+//     //         cart.push(product);
+//     //     }
 
-        localStorage.setItem("cart", JSON.stringify(cart));
+//     //     localStorage.setItem("cart", JSON.stringify(cart));
+//     //     window.location.href = "carrinho.html"; // Redirecionar para carrinho
+//     // });
+//     const addToCartBtn = document.getElementById("add-to-cart-btn");
+//     addToCartBtn.addEventListener("click", function () {
+//         const quantity = document.getElementById("quantity").value;
 
-        window.location.href = "carrinho.html";
-    });
-});
+//         const product = {
+//             name,
+//             price,
+//             image,
+//             quantity: parseInt(quantity),
+//         };
+
+//         let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+//         const existingProduct = cart.find((item) => item.name === name);
+//         if (existingProduct) {
+//             existingProduct.quantity += product.quantity;
+//         } else {
+//             cart.push(product);
+//         }
+
+//         localStorage.setItem("cart", JSON.stringify(cart));
+
+//         window.location.href = "carrinho.html";
+//     });
+// });
