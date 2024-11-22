@@ -11,51 +11,61 @@
 <body>
     <div class="container">
 
+        <!-- Logo e Carrinho -->
         <div class="container-logo">
             <div class="logo">
                 <div>
                     <img src="images/logoTerraQuinta.png" alt="Logo Terra Quinta">
                 </div>
-                
                 <div>
-                    <a href="http://127.0.0.1:5500/carrinho.html" class="icon">
+                    <a href="carrinho.html" class="icon">
                         <img src="images/carrinhoHeader.png" alt="Carrinho" style="width: 30px; height: 30px;">
                     </a>
                 </div>
             </div>
-            
         </div>
 
+        <!-- Painel de Login -->
         <div class="container-login">
             <div class="login-panel">
-
                 <h1>Bem-Vindo <span>👋</span></h1>
                 <p>Faça login para processar seus produtos.</p>
-                <form>
-                    <label for="email">Email</label>
+
+                <!-- Formulário de Login -->
+                <form id="login-form">
+                    <label for="login-username">Email</label>
                     <input type="text" id="login-username" placeholder="Email" required>
 
-                    <label for="password">Senha</label>
+                    <label for="login-password">Senha</label>
                     <input type="password" id="login-password" placeholder="Senha" required>
 
-                    <a href="http://127.0.0.1:5500/redefinirSenha.html" class="forgot-password">Esqueceu a Senha?</a>
+                    <a href="redefinirSenha.html" class="forgot-password">Esqueceu a Senha?</a>
                     <div class="content-btn">
                         <button type="submit" class="btn">Continuar</button>
                     </div>
                 </form>
+
+                <!-- Feedback para o usuário -->
                 <p id="feedback" class="hidden"></p>
+
+                <!-- Registro -->
                 <p class="register">
-                    Não tem uma conta? <a href="http://127.0.0.1:5500/cadastro.html">Criar uma conta</a>
+                    Não tem uma conta? <a href="cadastro.html">Criar uma conta</a>
                 </p>
+
+                <!-- Rodapé -->
                 <footer>
                     ©Terra Quinta All Rights Reserved.
                 </footer>
             </div>
+
+            <!-- Painel de Imagem -->
             <div class="image-panel">
                 <img src="images/loginPlanta.jpg" alt="Imagem de folhas">
             </div>
         </div>
     </div>
+
     <script src="js/login.js"></script>
 </body>
 

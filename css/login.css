@@ -157,3 +157,21 @@ footer {
     font-size: 0.8rem;
     color: #aaa;
 }
+
+.hidden {
+    display: none;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.success {
+    color: green;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+

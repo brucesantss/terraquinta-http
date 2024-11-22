@@ -1,40 +1,45 @@
-// Login de Usuário
+// Seleção do formulário e elementos
 document.getElementById('login-form')?.addEventListener('submit', function (e) {
     e.preventDefault();
 
+    // Obtendo os valores dos inputs
     const email = document.getElementById('login-username').value.trim();
     const password = document.getElementById('login-password').value.trim();
     const feedback = document.getElementById('feedback');
 
-    console.log('Iniciando processo de login');
-    console.log(`Email: ${email}`);
-
+    // Verificação de campos vazios
     if (!email || !password) {
         feedback.textContent = 'Por favor, preencha todos os campos!';
-        feedback.className = 'error';
+        feedback.classList.add('error');
         feedback.classList.remove('hidden');
-        console.error('Erro: Campos obrigatórios não preenchidos.');
         return;
     }
 
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    console.log('Usuários registrados:', users);
+    try {
+        // Simulação de usuários no localStorage
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const user = users.find(user => user.email === email && user.password === password);
 
-    const user = users.find(user => user.email === email && user.password === password);
+        if (user) {
+            // Login bem-sucedido
+            feedback.textContent = 'Login bem-sucedido!';
+            feedback.classList.add('success');
+            feedback.classList.remove('hidden');
 
-    if (user) {
-        feedback.textContent = 'Login bem-sucedido!';
-        feedback.className = 'success';
+            setTimeout(() => {
+                window.location.href = 'index.html'; // Redirecionar para a página inicial
+            }, 1500);
+        } else {
+            // Credenciais inválidas
+            feedback.textContent = 'Email ou senha incorretos.';
+            feedback.classList.add('error');
+            feedback.classList.remove('hidden');
+        }
+    } catch (err) {
+        // Erro ao acessar usuários
+        console.error('Erro ao acessar usuários:', err);
+        feedback.textContent = 'Ocorreu um erro. Tente novamente mais tarde.';
+        feedback.classList.add('error');
         feedback.classList.remove('hidden');
-        console.log('Usuário autenticado:', user);
-
-        setTimeout(() => {
-            window.location.href = 'http://127.0.0.1:5500/index.html';
-        }, 1500);
-    } else {
-        feedback.textContent = 'Email ou senha incorretos.';
-        feedback.className = 'error';
-        feedback.classList.remove('hidden');
-        console.error('Erro: Credenciais inválidas.');
     }
 });
