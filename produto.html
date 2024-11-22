@@ -100,47 +100,7 @@
         <p>© 2024 Terra Quinta. Todos os direitos reservados.</p>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const params = new URLSearchParams(window.location.search);
-            const name = params.get("name");
-            const price = params.get("price");
-            const image = params.get("image");
-
-            if (name && price && image) {
-                document.querySelector(".product-image img").src = image;
-                document.querySelector(".product-image img").alt = name;
-                document.querySelector(".product-details h1").textContent = name;
-                document.querySelector(".product-details .price").textContent = `${price}`;
-            }
-
-            const addToCartBtn = document.getElementById("add-to-cart-btn");
-            addToCartBtn.addEventListener("click", function () {
-                const quantity = document.getElementById("quantity").value;
-
-                const product = {
-                    name,
-                    price,
-                    image,
-                    quantity: parseInt(quantity)
-                };
-
-                let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-                const existingProduct = cart.find((item) => item.name === name);
-                if (existingProduct) {
-                    existingProduct.quantity += product.quantity;
-                } else {
-                    cart.push(product);
-                }
-
-                localStorage.setItem("cart", JSON.stringify(cart));
-
-                window.location.href = "carrinho.html";
-            });
-        });
-    </script>
-    <script src="js/script.js"></script>
+    <script src="js/produto.js"></script>
 </body>
 
 </html>
