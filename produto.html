@@ -15,7 +15,7 @@
             <a href="http://127.0.0.1:5500/home.html">
                 <img src="images/logoTerraQuinta.png" alt="Logo Terra Quinta">
             </a>
-           
+
         </div>
         <a href="http://127.0.0.1:5500/home.html#sobre-nos" class="nav-link" style="font-size: 18px;">Sobre nós</a>
         <nav>
@@ -58,9 +58,11 @@
             </form>
 
             <p class="long-description">
-                Esta planta apresenta folhagem vibrante e saudável, ideal para embelezar qualquer ambiente. 
-                Suas folhas verdes exuberantes trazem frescor e vida, enquanto sua resistência a diversas condições de luz
-                a torna uma ótima opção tanto para interiores quanto para exteriores. Com cuidados simples, como rega moderada
+                Esta planta apresenta folhagem vibrante e saudável, ideal para embelezar qualquer ambiente.
+                Suas folhas verdes exuberantes trazem frescor e vida, enquanto sua resistência a diversas condições de
+                luz
+                a torna uma ótima opção tanto para interiores quanto para exteriores. Com cuidados simples, como rega
+                moderada
                 e exposição à luz indireta, esta planta pode prosperar e se tornar uma bela adição à sua decoração.
             </p>
         </div>
@@ -90,7 +92,7 @@
                     <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
                     <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
                     <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
-                
+
                 </div>
             </div>
         </div>
@@ -100,7 +102,68 @@
         <p>© 2024 Terra Quinta. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="js/produto.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            const name = params.get("name");
+            const price = params.get("price");
+            const image = params.get("image");
+
+            if (name && price && image) {
+                document.querySelector(".product-image img").src = image;
+                document.querySelector(".product-image img").alt = name;
+                document.querySelector(".product-details h1").textContent = name;
+                document.querySelector(".product-details .price").textContent = `${price}`;
+            }
+
+            const addToCartBtn = document.getElementById("add-to-cart-btn");
+            addToCartBtn.addEventListener("click", function () {
+                const quantity = document.getElementById("quantity").value;
+
+                const product = {
+                    name,
+                    price,
+                    image,
+                    quantity: parseInt(quantity)
+                };
+
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+                const existingProduct = cart.find((item) => item.name === name);
+                if (existingProduct) {
+                    existingProduct.quantity += product.quantity;
+                } else {
+                    cart.push(product);
+                }
+
+                localStorage.setItem("cart", JSON.stringify(cart));
+
+                window.location.href = "carrinho.html";
+            });
+
+            const decreaseBtn = document.getElementById("decrease");
+            const increaseBtn = document.getElementById("increase");
+            const quantityInput = document.getElementById("quantity");
+
+            decreaseBtn.addEventListener("click", function () {
+                let currentValue = parseInt(quantityInput.value);
+                if (currentValue > 1) { 
+                    quantityInput.value = currentValue - 1;
+                }
+            });
+
+            increaseBtn.addEventListener("click", function () {
+                let currentValue = parseInt(quantityInput.value);
+                quantityInput.value = currentValue + 1;
+            });
+
+            quantityInput.addEventListener("input", function () {
+                if (quantityInput.value === "" || parseInt(quantityInput.value) < 1) {
+                    quantityInput.value = 1;
+                }
+            });
+        });
+    </script>
     <script src="js/home.js"></script>
 </body>
 

@@ -3,9 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const orderTotalElement = document.getElementById("order-total");
     const finalTotalElement = document.getElementById("final-total");
 
-
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
 
     if (cart.length === 0) {
         orderItemsContainer.innerHTML = "<p>Seu pedido está vazio.</p>";
@@ -13,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
         finalTotalElement.textContent = "R$ 0,00";
         return;
     }
-
 
     let total = 0;
 
@@ -45,5 +42,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("back-to-shopping").addEventListener("click", function () {
         window.location.href = "http://127.0.0.1:5500/home.html"; 
+    });
+
+    // limpando carrinho apos finalizar compra
+    document.getElementById('back-to-shopping').addEventListener('click', function () {
+        localStorage.removeItem("cart");
+        window.location.href = 'http://127.0.0.1:5500/home.html';
     });
 });
